@@ -1,6 +1,10 @@
 <?php 
 
+// Kelas yang bertugas untuk mengelola Flash Message dan menampilkannya
+
 class Flasher {
+
+  // static method, agar ketika method dijalankan kelasnya tidak perlu diinstansiasi
 
   public static function setFlash($pesan, $aksi, $tipe)
   {

@@ -1,7 +1,7 @@
 <?php 
 
 class User_model {
-  private $nama = "Rudy Nurafif";
+  private $nama = ""; // bisa diambil dari db, api, atau service lainnya
 
   public function getUser()
   {

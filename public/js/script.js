@@ -1,12 +1,13 @@
 $(function() { // ketika doc sudah siap, jalankan fungsi didalamnya (ready)
   
+  // Tombol Tambah Data
   $('.tombolTambahData').on('click', function() {
     $('#formModalLabel').html('Tambah Data Produk');
     $('.modal-footer button[type=submit]').html('Tambah Data');
   })
 
+  // Tombol Ubah
   $('.tampilModalUbah').on('click', function() {
-    
     $('#formModalLabel').html('Ubah Data Produk');
     $('.modal-footer button[type=submit]').html('Ubah Data');
     $('.modal-body form').attr('action', 'http://localhost/phpmvc/public/products/ubah');

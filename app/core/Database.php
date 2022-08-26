@@ -1,12 +1,13 @@
 <?php 
 
 // DATABASE WRAPPER
+// kelas general
 
 class Database {
   private $host = DB_HOST;
   private $user = DB_USER;
   private $pass = DB_PASS;
-  private $name = DB_NAME;
+  private $name = DB_NAME;  
 
   private $dbh; // database handler
   private $stmt; // untuk menyimpan query
@@ -16,6 +17,7 @@ class Database {
     // data source name
     $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->name; // connect ke db
 
+    // optimasi
     $option = [
       PDO::ATTR_PERSISTENT => true,
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -62,18 +64,18 @@ class Database {
   public function resultSet()
   {
     $this->execute();
-    return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $this->stmt->fetchAll(PDO::FETCH_ASSOC); // menampilkan semua data
   }
 
   public function single()
   {
     $this->execute();
-    return $this->stmt->fetch(PDO::FETCH_ASSOC);
+    return $this->stmt->fetch(PDO::FETCH_ASSOC); // menampilkan satu data
   }
 
   public function rowCount()
   {
-    return $this->stmt->rowCount();
+    return $this->stmt->rowCount(); // rowCount dari PDO  
   }
 
 }

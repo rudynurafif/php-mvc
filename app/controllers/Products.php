@@ -5,6 +5,8 @@ class Products extends Controller {
   {
     $data['judul'] = "Products List";
     $data['product'] = $this->model("Products_model")->getAllProducts();
+
+    // merangkai view
     $this->view('templates/header', $data);
     $this->view('products/index', $data);
     $this->view('templates/footer');
@@ -14,6 +16,7 @@ class Products extends Controller {
   {
     $data['judul'] = "Product Detail";
     $data['product'] = $this->model("Products_model")->getProductById($id);
+    
     $this->view('templates/header', $data);
     $this->view('products/detail', $data);
     $this->view('templates/footer');
@@ -21,7 +24,7 @@ class Products extends Controller {
 
   public function tambah()
   {
-    if($this->model('Products_model')->tambahDataProducts($_POST) > 0) {
+    if($this->model('Products_model')->tambahDataProduct($_POST) > 0) {
       Flasher::setFlash('berhasil', 'ditambahkan', 'success');
       header('Location: ' . BASEURL . '/products');
       exit;
@@ -34,7 +37,7 @@ class Products extends Controller {
 
   public function hapus($id)
   {
-    if($this->model('Products_model')->hapusDataProducts($id) > 0) {
+    if($this->model('Products_model')->hapusDataProduct($id) > 0) {
       Flasher::setFlash('berhasil', 'dihapus', 'success');
       header('Location: ' . BASEURL . '/products');
       exit;
@@ -52,7 +55,7 @@ class Products extends Controller {
 
   public function ubah()
   {
-    if($this->model('Products_model')->ubahDataProducts($_POST) > 0) {
+    if($this->model('Products_model')->ubahDataProduct($_POST) > 0) {
       Flasher::setFlash('berhasil', 'diubah', 'success');
       header('Location: ' . BASEURL . '/products');
       exit;
@@ -66,7 +69,7 @@ class Products extends Controller {
   public function cari()
   {
     $data['judul'] = "Products List";
-    $data['product'] = $this->model('Products_model')->cariDataProducts();
+    $data['product'] = $this->model('Products_model')->cariDataProduct();
     $this->view('templates/header', $data);
     $this->view('products/index', $data);
     $this->view('templates/footer');

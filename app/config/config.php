@@ -1,5 +1,7 @@
 <?php 
 
+// membuat constants
+
 define('BASEURL', 'http://localhost/phpmvc/public');
 
 // DB

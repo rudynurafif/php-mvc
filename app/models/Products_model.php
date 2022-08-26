@@ -15,14 +15,14 @@ class Products_model {
     return $this->db->resultSet();
   }
 
-  public function getProductById($id)
+  public function getProductById($id) // detail
   {
     $this->db->query("SELECT * FROM " . $this->table . ' WHERE id=:id');
     $this->db->bind('id', $id);
     return $this->db->single();
   }
 
-  public function tambahDataProducts($data)
+  public function tambahDataProduct($data)
   {
     $query = "INSERT INTO products
                 VALUES
@@ -39,7 +39,7 @@ class Products_model {
     return $this->db->rowCount();
   }
 
-  public function hapusDataProducts($id)
+  public function hapusDataProduct($id)
   {
     $query = "DELETE FROM products WHERE id=:id";
     $this->db->query($query); // jalankan query
@@ -50,7 +50,7 @@ class Products_model {
     return $this->db->rowCount();
   }
 
-  public function ubahDataProducts($data)
+  public function ubahDataProduct($data)
   {
     $query = "UPDATE products SET
                 nama = :nama,
@@ -71,7 +71,7 @@ class Products_model {
     return $this->db->rowCount();
   }
 
-  public function cariDataProducts()
+  public function cariDataProduct()
   {
     $keyword = $_POST['keyword'];
     $query = 'SELECT * FROM products WHERE nama LIKE :keyword';

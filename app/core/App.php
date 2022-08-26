@@ -6,11 +6,11 @@ class App {
 
   protected $controller = 'Home'; // contoller default
   protected $method = 'index'; // method default
-  protected $params = [];
+  protected $params = []; // parameter default
 
   public function __construct()
   {
-    $url = $this->parseURL();
+    $url = $this->parseURL(); // method parseURL dibawah
 
     // controller
     if($url == NULL) {
@@ -36,17 +36,17 @@ class App {
       $this->params = array_values($url); // mengambil parameters dari url (yang bentukan array)
     }
 
-    // jalankan controller dan method, serta kirimkan params (jika ada)
+    // menjalankan controller dan method, serta kirimkan params (jika ada)
     call_user_func_array([$this->controller, $this->method], $this->params);
-
   }
 
+    
   public function parseURL()
   {
     if(isset($_GET['url'])) {
       $url = rtrim($_GET['url'], '/'); // menghilangkan '/' diakhir url
-      $url = filter_var($url, FILTER_SANITIZE_URL); // membersihkan url dari karakter aneh/hacker
-      $url = explode('/', $url);
+      $url = filter_var($url, FILTER_SANITIZE_URL); // membersihkan url dari karakter aneh / script hack
+      $url = explode('/', $url); // dipisah menjadi elemen elemen array diantara separator /
       return $url;
     }
   }
