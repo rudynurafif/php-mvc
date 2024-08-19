@@ -19,7 +19,9 @@ class Products_model {
   {
     $this->db->query("SELECT * FROM " . $this->table . ' WHERE id=:id');
     $this->db->bind('id', $id);
-    return $this->db->single();
+    $result = $this->db->single();
+    // var_dump($result);
+    return $result;
   }
 
   public function tambahDataProduct($data)

@@ -30,7 +30,7 @@
     <div class="col-lg-6">
       <h2>Daftar Produk</h2>
       <ul class="list-group">
-          <?php foreach($data['product'] as $product) : ?>  
+          <?php foreach($data['products'] as $product) : ?>  
           <li class="list-group-item">
             <?= $product['nama']; ?>
             <a href="<?= BASEURL; ?>/products/hapus/<?= $product['id']; ?>" class="badge bg-danger float-end ms-1 text-decoration-none" onclick="return confirm('Yakin?')">Hapus</a>
@@ -80,7 +80,7 @@
 
           <div class="mb-3">
             <label for="harga" class="form-label">Harga</label>
-            <input type="text" class="form-control" id="harga" name="harga" placeholder="(Contoh: IDR 1.000.000)" required>
+            <input type="text" class="form-control" id="harga" name="harga" placeholder="(Contoh / Format: IDR 1.000.000)" required>
           </div>
       </div>
 

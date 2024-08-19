@@ -4,7 +4,7 @@ class Products extends Controller {
   public function index()
   {
     $data['judul'] = "Products List";
-    $data['product'] = $this->model("Products_model")->getAllProducts();
+    $data['products'] = $this->model("Products_model")->getAllProducts();
 
     // merangkai view
     $this->view('templates/header', $data);
@@ -69,7 +69,7 @@ class Products extends Controller {
   public function cari()
   {
     $data['judul'] = "Products List";
-    $data['product'] = $this->model('Products_model')->cariDataProduct();
+    $data['products'] = $this->model('Products_model')->cariDataProduct();
     $this->view('templates/header', $data);
     $this->view('products/index', $data);
     $this->view('templates/footer');
